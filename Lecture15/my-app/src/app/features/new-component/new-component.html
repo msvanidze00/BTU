@@ -1,0 +1,20 @@
+<div>
+  <h1>Hello, World! this is new component</h1>
+
+  <input (input)="doSmth()" />
+  <button (click)="increment()">Click to increase count</button>
+
+  <p>Count is {{ count }}</p>
+  <p>{{ 2 + 2 }}</p>
+
+  <p>Hello</p>
+
+  <app-child-component
+    (formSubmitted)="takeEvent($event)"
+    [(value)]="counter"
+    [childInputName]="name"
+  >
+    <h1>Hllo from parent to child</h1>
+  </app-child-component>
+  <span>{{ counter() }}</span>
+</div>

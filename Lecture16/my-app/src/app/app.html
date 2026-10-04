@@ -1,0 +1,77 @@
+<!-- <div>
+  @if (userRole === 'admin') {
+    <p>Welcome, Admin!</p>
+  } @else if (userRole === 'editor') {
+    <p>Welcome, Editor!</p>
+  } @else {
+    <p>Welcome user!</p>
+  }
+</div>
+
+<div>
+  <p *ngIf="userRole === 'admin'; else notAdmin">Welcome Admin</p>
+
+  <ng-template #notAdmin>
+    <p *ngIf="userRole === 'editor'; else user">welcome editor</p>
+  </ng-template>
+
+  <ng-template #user>
+    <p>Welcome user user</p>
+  </ng-template>
+</div>
+
+<div>
+  @for (user of users; track user.name) {
+    <p>{{ user.name }}</p>
+    <p>{{ user.age }}</p>
+  }
+</div>
+
+<div>
+  <p *ngFor="let user of users; trackby: user.name">
+    {{ user.name }}
+  </p>
+</div>
+
+<div>
+  @switch (status) {
+    @case ('loading') {
+      <p>Loading....</p>
+    }
+    @case ('success') {
+      <p>Success</p>
+    }
+    @case ('error') {
+      <p>something went wrong!</p>
+    }
+    @default {
+      <p>unknown</p>
+    }
+  }
+</div>
+
+
+<app-card>
+  <p>this contentis from app</p>
+</app-card> -->
+
+<div>
+  <h1>Card page</h1>
+  <!-- <app-card
+    [cardTitle]="title"
+    [cardDescription]="description"
+    [cardContent]="content"
+    [cardPrice]="price"
+  ></app-card> -->
+  <div class="wrapper">
+    @for (card of cardData; track card.price) {
+      <app-card
+        [cardTitle]="card.title"
+        [cardDescription]="card.description"
+        [cardContent]="card.content"
+        [cardPrice]="card.price"
+      >
+      </app-card>
+    }
+  </div>
+</div>

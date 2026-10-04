@@ -1,0 +1,16 @@
+.wrapper {
+  width: 150px;
+  height: 250px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__content {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

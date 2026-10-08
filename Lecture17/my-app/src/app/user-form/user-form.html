@@ -1,0 +1,27 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input
+    type="text"
+    name="username"
+    ngModel
+    #username="ngModel"
+    required
+    minlength="5"
+    maxlength="15"
+  />
+
+  @if (username.errors?.['required'] && userForm.touched) {
+    <p>სახელი სავალდებულოა</p>
+  }
+
+  @if (username.errors?.['minlength']) {
+    <p>სახელი მინიმუმ 3 სიმბოლო უნდა იყოს</p>
+  }
+
+  <input type="text" name="city" [(ngModel)]="city" />
+  <input type="text" name="phone" ngModel #phone="ngModel" pattern="5[0-9]{8}" />
+  @if (phone.touched && phone.errors?.['pattern']) {
+    <p>ნომერიუნდა შედგებოდეს 9 სიმბოლოსგან</p>
+  }
+
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>

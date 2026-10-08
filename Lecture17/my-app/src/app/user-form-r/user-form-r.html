@@ -1,0 +1,28 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label for="username">Username</label>
+  <input id="username" formControlName="username" type="text" />
+
+  @if (userForm.controls.username.touched && userForm.controls.username.errors?.['required']) {
+    <p>სახელი სავალდებულოა</p>
+  }
+  @if (userForm.controls.username.dirty && userForm.controls.username.errors?.['minlength']) {
+    <p>სახელი უნდა შეიცავდეს მინ 3 სიმბოლოს</p>
+  }
+
+  @if (userForm.controls.username.touched && userForm.controls.username.errors?.['noadmin']) {
+    <p>name admin is forbidden</p>
+  }
+
+  <label for="city">City</label>
+  <input id="city" formControlName="city" type="text" />
+
+  <label for="Email">Email</label>
+  <input id="email" formControlName="email" type="text" />
+
+  <label for="age">Age</label>
+  <input id="age" formControlName="age" type="number" />
+
+  <button>Submit</button>
+</form>
+
+<button (click)="changeCity()">Click to change city</button>
